@@ -38,13 +38,13 @@ form.addEventListener('submit',function(e){
     }
     
     if(bmi>18.6 && bmi<24.9){
-        console.log("normal range");
+       guide.innerHTML="Normal Range";
     }
     else if(bmi<=18.6){
-        console.log("underweight");
+        guide.innerHTML="Underweight";
     }
     else{
-       console.log("overweight");
+        guide.innerHTML="Overweight";
     }
     });
     });
