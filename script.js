@@ -1,29 +1,50 @@
 const form=document.querySelector('form')
 form.addEventListener('submit',function(e){
     e.preventDefault()
-    const height = parseInt(document.querySelector('#height').value)
-    const weight = parseInt(document.querySelector('#weight').value)
-    const results = document.querySelector('#results')
-    const guide = document.querySelector('#weight-guide ')
+    let height = parseInt(document.querySelector('#height').value)
+    let weight = parseInt(document.querySelector('#weight').value)
+    let results = document.querySelector('#results')
+    let guide = document.querySelector('#weight-guide')
 
     if(height==='' || height<0 || isNaN(height)){
         results.innerHTML=`Please give a valid height ${height}`;
     }
-     else if(weight==='' || weight<0 || isNaN(weight)){
+    else if(weight==='' || weight<0 || isNaN(weight)){
         results.innerHTML=`Please give a valid weight ${weight}`;
     }
     else{
-        const bmi=(weight/((height*height)/10000).toFixed(2));
+        let bmi=(weight/((height*height)/10000).toFixed(2));
         results.innerHTML = `<span>${bmi}</span>`
     }
     
-    if(results<18.6){
-        guide.innerHTML=`Under Weight`;
+    const form=document.querySelector('form')
+form.addEventListener('submit',function(e){
+    e.preventDefault()
+    let height = parseInt(document.querySelector('#height').value)
+    let weight = parseInt(document.querySelector('#weight').value)
+    let results = document.querySelector('#results')
+    let guide = document.querySelector('#weight-guide')
+    let bmi=0;
+    
+    if(height==='' || height<0 || isNaN(height)){
+        results.innerHTML=`Please give a valid height ${height}`;
     }
-    else if(results>24.9){
-        guide.innerHTML=`Overweight`;
+    else if(weight==='' || weight<0 || isNaN(weight)){
+        results.innerHTML=`Please give a valid weight ${weight}`;
     }
     else{
-        guide.innerHTML=`Normal Range`;
+        bmi=(weight/((height*height)/10000).toFixed(2));
+        results.innerHTML = `<span>${bmi}</span>`
     }
+    
+    if(bmi>18.6 && bmi<24.9){
+        console.log("normal range");
+    }
+    else if(bmi<=18.6){
+        console.log("underweight");
+    }
+    else{
+       console.log("overweight");
+    }
+    });
     });
